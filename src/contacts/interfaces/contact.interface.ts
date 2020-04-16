@@ -6,4 +6,7 @@ export interface Contact extends Document {
     firstName: string
     lastName: string;
     userDeviceToken: string;
+    userId: string,
+    relationId: string,
+    accountId: string
 }

@@ -11,7 +11,7 @@ export class ContactsController {
     // Add new User Contact
     @Post('addContacts')
     @HttpCode(HttpStatus.OK)
-    async addNewContact(@Body() createContactDTO: CreateContactDTO) {
+    addNewContact(@Body() createContactDTO: CreateContactDTO) {
         return this.contactService.storeContact(createContactDTO);
     }
 
