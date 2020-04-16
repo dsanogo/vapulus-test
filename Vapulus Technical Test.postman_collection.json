@@ -1,0 +1,429 @@
+{
+	"info": {
+		"_postman_id": "c550c49c-2937-4f74-af7f-838f7ed95866",
+		"name": "Vapulus Technical Test",
+		"description": "## Vapulus Technical test APIs\n## Framework Used: NestJs\n## Pattern: MVC\n## Database: MongoDB.\n\n###### You can find the users in the config folder to have the authorization, deviceToken and fingerPrint OR simply use the getUsers endpoint to fetch the users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "Add Contact",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"m.elhadidi@vapulus.com\",\n\t\"mobile\": \"01143255761\",\n\t\"firstName\": \"Moustafa\",\n\t\"lastName\": \"El-Hadidi\",\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/contacts/addContacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contacts",
+								"addContacts"
+							]
+						},
+						"description": "###### Add new Contact API"
+					},
+					"response": [
+						{
+							"name": "Add Contact Mock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"m.elhadidi@vapulus.com\",\n\t\"mobile\": \"01143255761\",\n\t\"firstName\": \"Moustafa\",\n\t\"lastName\": \"El-Hadidi\",\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/contacts/addContacts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"contacts",
+										"addContacts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "221"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dd-yYRZPjlj/6Hr6mxMxnL7srSjCI4\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Apr 2020 14:31:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Contact successfully saved\",\n    \"data\": {\n        \"email\": \"m.elhadidi@vapulus.com\",\n        \"relationId\": \"5\",\n        \"accountId\": \"18\",\n        \"userId\": \"2\",\n        \"firstName\": \"Moustafa\",\n        \"lastName\": \"El-Hadidi\",\n        \"mobileNumber\": \"01143255761\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "User Contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"pageNum\": \"1\",\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/contacts/getList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contacts",
+								"getList"
+							]
+						},
+						"description": "###### Get all User Contacts with Pagination of 5 Contacts Per Page.\nThis can be Changed by Updating the Variable \"defaultPagination\" in the \"config/app.ts\" file."
+					},
+					"response": [
+						{
+							"name": "User Contacts Mock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"pageNum\": \"1\",\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/contacts/getList",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"contacts",
+										"getList"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "539"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21b-zHf9CxDve//78DBCeeooGJUGCos\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Apr 2020 14:36:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"User contacts\",\n    \"data\": [\n        {\n            \"createdAt\": \"2020-04-16T14:31:33.955Z\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"userId\": \"2\",\n            \"mobileNumber\": \"01143255761\",\n            \"email\": \"m.elhadidi@vapulus.com\"\n        },\n        {\n            \"createdAt\": \"2020-04-16T01:54:37.521Z\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"userId\": \"2\",\n            \"mobileNumber\": \"01143255761\",\n            \"email\": \"m.elhadidi@vapulus.com\"\n        },\n        {\n            \"createdAt\": \"2020-04-16T01:52:16.891Z\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"userId\": \"2\",\n            \"mobileNumber\": \"01143255761\",\n            \"email\": \"m.elhadidi@vapulus.com\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Recent Contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/contacts/getRecentList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"contacts",
+								"getRecentList"
+							]
+						},
+						"description": "Get User recent added Contacts - Will fetch the last 5 Contacts"
+					},
+					"response": [
+						{
+							"name": "Recent Contacts Mock",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n\t\"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n\t\"fingerPrint\": \"sjHdrtt3QD\"\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/contacts/getRecentList",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"contacts",
+										"getRecentList"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "555"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22b-c7r66ufAEYoiWpG51m/5qRbMoX8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Apr 2020 15:18:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"User last 5 Contacts added\",\n    \"data\": [\n        {\n            \"created_ts\": \"2020-04-16T14:31:33.955Z\",\n            \"userId\": \"2\",\n            \"email\": \"m.elhadidi@vapulus.com\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"mobileNumber\": \"01143255761\"\n        },\n        {\n            \"created_ts\": \"2020-04-16T01:54:37.521Z\",\n            \"userId\": \"2\",\n            \"email\": \"m.elhadidi@vapulus.com\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"mobileNumber\": \"01143255761\"\n        },\n        {\n            \"created_ts\": \"2020-04-16T01:52:16.891Z\",\n            \"userId\": \"2\",\n            \"email\": \"m.elhadidi@vapulus.com\",\n            \"firstName\": \"Moustafa\",\n            \"lastName\": \"El-Hadidi\",\n            \"mobileNumber\": \"01143255761\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Welcome",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}",
+							"host": [
+								"{{base_url}}"
+							]
+						},
+						"description": "Welcome Message from Nestjs"
+					},
+					"response": []
+				}
+			],
+			"description": "Contacts APIs",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Users List API - Fetch all the users in the config file."
+					},
+					"response": [
+						{
+							"name": "Users List Mock",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "488"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e8-XeWfbyMLceE5pR2HMULNHY/QoM8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 16 Apr 2020 02:20:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"All users\",\n    \"data\": [\n        {\n            \"authorization\": \"yRua8WcsuiZQIucxCAYuuHvRinFsPImzoHIncgHFfGsOl593tHaHDqHlXQ0o\",\n            \"deviceToken\": \"aHDqHlXQ0ofGsOl593tHmzoHIncgHFyRua8WcsuiZQIucxCAYuuHvRinFsPI\",\n            \"fingerPrint\": \"j1nKfCsqac\",\n            \"name\": \"Daouda Sanogo\",\n            \"id\": \"1\"\n        },\n        {\n            \"authorization\": \"aGxgcssP84jeU6lfq0mwsjHdrtt3QDdBGZ4aCp1AWdSlS1BDxK4hjTQHzkQh\",\n            \"deviceToken\": \"4hjTQHzkQhWdSlS1BDxKdBGZ4aCp1AaGxgcssP84sjHdrtt3QDjeU6lfq0mw\",\n            \"fingerPrint\": \"sjHdrtt3QD\",\n            \"name\": \"Moustafa El-hadidi\",\n            \"id\": \"2\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Get the users list",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e70dfd03-9073-4c3f-b09d-f39377d99aaa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9392c79e-4dd7-4f9b-b8ed-3eb3674bce14",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "40899d0e-4bba-4d3f-ae94-4b0309c44ba6",
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
