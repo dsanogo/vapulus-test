@@ -38,7 +38,7 @@ export class GetUserContactsDTO {
 
     @IsOptional()
     @IsString()
-    readonly character: string;
+    readonly character?: string;
 
     @IsNotEmpty({message: "Please provide with the authorization token"})
     @IsString()
