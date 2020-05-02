@@ -1,6 +1,7 @@
 import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
 import { AppService } from './app.service';
 import users from './config/users';
+import { ApiOkResponse } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
@@ -12,6 +13,7 @@ export class AppController {
   }
 
   @Get('users')
+  @ApiOkResponse({description: 'Users list'})
   @HttpCode(HttpStatus.OK)
   getUsers() {
     return {
