@@ -97,7 +97,6 @@ describe('Contacts Controller', () => {
       await controller.addNewContact(invalidCreateContactRequest)
        .then(() => done.fail("Should return an unauthencated response"))
        .catch((error) => {
-         console.log(error)
          expect(error.statusCode).toBe(HttpStatus.UNAUTHORIZED);
          expect(error.message).toBe("Not Authorized");
          expect(error.error).toBe("Invalid Authentication");
